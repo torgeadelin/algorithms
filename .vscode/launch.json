@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LinkedList",
+            "request": "launch",
+            "mainClass": "data_structures.linked_list.LinkedList",
+            "projectName": "Algorithms_f0d056e5"
+        }
+    ]
+}
