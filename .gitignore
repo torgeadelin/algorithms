@@ -1,6 +1,13 @@
 
-# Created by https://www.gitignore.io/api/java,macos
-# Edit at https://www.gitignore.io/?templates=java,macos
+# Created by https://www.gitignore.io/api/code,java,macos
+# Edit at https://www.gitignore.io/?templates=code,java,macos
+
+### Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 ### Java ###
 # Compiled class file
@@ -55,4 +62,4 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# End of https://www.gitignore.io/api/java,macos
+# End of https://www.gitignore.io/api/code,java,macos
