@@ -21,4 +21,4 @@ To retrieve the value by its pair key, we repeat this process.Compute the hash c
 Summary
 `key` -> `hashCode` -> `index` -> `(key, value)`
 
-<img src="./resources/hash_table.png" width="700px"/>
+<img src="./resources/hash_table.png" width="800px"/>
