@@ -2,6 +2,8 @@
 
 All problems and content are from Cracking the Coding Interview Book by Gayle Laakmann McDowell
 
+## Problems and Solutions are [here](./problems)
+
 ## 1. Arrays and Strings
 
 ### 1.1 Hash Tables
