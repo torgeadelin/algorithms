@@ -115,4 +115,4 @@ String joinWords(String[] words) {
 }
 ```
 
-Time complexity is **O(n)**
+Time complexity is **O(n)** where n is the nb. of words.

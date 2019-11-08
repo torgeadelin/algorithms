@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Unique",
+            "request": "launch",
+            "mainClass": "Unique",
+            "projectName": "Algorithms_f0d056e5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Unique",
+            "request": "launch",
+            "mainClass": "problems.chapter1.Unique",
+            "projectName": "Algorithms_f0d056e5"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - LinkedList",
             "request": "launch",
             "mainClass": "data_structures.linked_list.LinkedList",
