@@ -17,7 +17,8 @@ URLify: Write a method to replace all spaces in a string with '%20'. You may ass
 
 EXAMPLE
 
-**Input**: "Mr John Smith ", 13 Output: "Mr%20John%20Smith"
+**Input**: "Mr John Smith ", 13 </br>
+**Output**: "Mr%20John%20Smith"
 
 ### 4. [Palindrom Permutation](./PalindromPermutation.java)
 
@@ -25,5 +26,5 @@ Palindrome Permutation: Given a string, write a function to check if it is a per
 
 EXAMPLE
 
-**Input**: Tact Coa
+**Input**: Tact Coa </br>
 **Output**: True (permutations: "taco cat", "atco eta", etc.)
