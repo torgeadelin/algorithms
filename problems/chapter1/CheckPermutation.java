@@ -1,4 +1,4 @@
-class Permutation {
+class CheckPermutation {
     public static void main(String[] args) {
         System.out.println("Using Vector Frequency -> " + isPermutation(args[0], args[1]));
     }
