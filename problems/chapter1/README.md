@@ -20,7 +20,7 @@ EXAMPLE
 **Input**: "Mr John Smith ", 13 </br>
 **Output**: "Mr%20John%20Smith"
 
-### 4. [Palindrom Permutation](./PalindromPermutation.java)
+### 4. [Palindrome Permutation](./PalindromPermutation.java)
 
 Palindrome Permutation: Given a string, write a function to check if it is a permutation of a palin­ drome. A palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
 
@@ -39,3 +39,15 @@ pale, ple -> true
 pales, pale -> true
 pale, bale -> true
 pale, bake -> false
+
+### 6. [String Compression](./StringCompression.java)
+
+String Compression: Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2blc5a3. If the "compressed" string would not become smaller than the original string, your method should return the original string. You can assume the string has only uppercase and lowercase letters (a - z).
+
+### 7. [Rotate Matrix](./RotateMatrix.java)
+
+Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+
+### 8. [Zero Matrix](./ZeroMatrix.java)
+
+Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
