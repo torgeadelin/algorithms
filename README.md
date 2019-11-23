@@ -188,3 +188,12 @@ You could have a pointer `p1` (the **fast** pointer) move every two elements for
 ### Recursive Problems
 
 A number of linked list problems rely on recursion. If you're having trouble solving a linked list problem, you should explore if a recursive approach will work. **However, you should remember that recursive algorithms take at least O(n) space**, where n is the depth of the recursive call. All recursive algorithms can be implemented iteratively, although they may be much more complex.
+
+### Time complexity
+
+| Operation              | Linked List | Doubly Linked List |
+| ---------------------- | ----------- | ------------------ |
+| get                    | `O(n)`      | `O(n)`             |
+| add(tail or head)      | `O(1)`      | `O(1)`             |
+| remove(tail or head)   | `O(1)`      | `O(1)`             |
+| add and remove(inside) | `O(n)`      | `O(n)`             |
