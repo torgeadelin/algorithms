@@ -8,10 +8,10 @@ class Node<T> {
     }
 }
 
-public class LinkedList {
+public class LinkedList<T> {
     // Node Class
-    public Node<Integer> head;
-    public Node<Integer> tail;
+    public Node<T> head;
+    public Node<T> tail;
     public int size = 0;
 
     // Constructor
@@ -21,7 +21,7 @@ public class LinkedList {
     }
 
     public void insert(int value) {
-        Node<Integer> newNode = new Node<>(value);
+        Node<T> newNode = new Node<>(value);
         if (this.head == null) {
             this.head = newNode;
             this.tail = newNode;
@@ -44,7 +44,7 @@ public class LinkedList {
 
         // 2 or more nodes
         if (this.tail != null) {
-            Node<Integer> current = this.head;
+            Node<T> current = this.head;
             while (current.next != this.tail) {
                 current = current.next;
             }
@@ -66,7 +66,7 @@ public class LinkedList {
     }
 
     public void printToScreen() {
-        Node<Integer> current = this.head;
+        Node<T> current = this.head;
         while (current != null) {
             System.out.print(current.value + ", ");
             current = current.next;
@@ -75,7 +75,7 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        LinkedList<Integer> list = new LinkedList();
         list.insert(1);
         list.insert(2);
         list.insert(3);
