@@ -16,6 +16,7 @@ Return Kth to Last: Implement an algorithm to find the kth to last element of a 
 
 Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node.
 EXAMPLE
+
 **Input:** the node c from the linked list `a->b->c->d->e->f`
 **Result:** nothing is returned, but the new linked list looks like `a->b->d->e->f`
 
@@ -26,4 +27,5 @@ Partition: Write code to partition a linked list around a value x, such that all
 SOLUTION
 EXAMPLE
 **Input**: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 [partition=5]
+
 **Output**: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
