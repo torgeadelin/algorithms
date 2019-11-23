@@ -118,3 +118,73 @@ String joinWords(String[] words) {
 ```
 
 Time complexity is **O(n)** where n is the nb. of words.
+
+## 2. Linked Lists
+
+A linked list is a data structure that represents a sequence of nodes. In a singly linked list each node has a pointer to the next node and in a doubly linked list each node has two pointers, one pointing to the next element, and one to the previous
+
+Unlike an array, a linked list does not provide constant time access to an "index" within the list. This means that if you want to get the kth element in the list you'd have to iterate through k elements in the list.
+
+In a linked list you can add elements at the beginning and end of the list in constant time which in some cases is really useful.
+
+<img src="./resources/linked_list.png" width="800px">
+
+### Creating a Linked List
+
+This implementation is not a Linked List data structure. We access the linked list through a reference to the head Node of the linked list. When implementing the list in this way we need to be careful if multiple objects reference to this list. If the head changes, some objects might still point to the old head.
+
+To fix this, we would have another class LinkedList which as a property head in which we store the head of the list.
+
+```java
+class Node{
+    Node next = null;
+    int data;
+
+    public Node(int d) {
+        data = d;
+    }
+
+    void appendToTail(int d) {
+        Node end = new Node(d);
+        Node n = this;
+        while (n.next != null) {
+            n = n.next;
+        }
+        n.next= end;
+    }
+}
+```
+
+### Deleting a node from a Singly Linked List
+
+Given a node `n`, we find the previous node `prev` and set `prev.next = n.next`. If we have doubly linked list we also must set `n.next.prev = n.prev`. We also have to check for the null pointers and update the head / tail accordingly.
+
+```java
+Node deleteNode(Node head, int d) {
+    Node n = head;
+    if(n.data = d) {
+        return head.next; // move head
+    }
+
+    while(n.next != null) {
+        if (n.next.data = d) {
+            n.next = n.next.next;
+            return head;
+        }
+        n = n.next;
+    }
+    return head;
+}
+```
+
+### The "Runner" Technique
+
+The "**Runner**" or the second pointer technique means that you iterate through the linked list with two pointers at the same time, with one ahead of the other. The **fast** node might be ahead by a fixed amount, or it might be jumping multiple nodes for each one node that the **slow** pointer iterates through.
+
+Example: Assume you have a list _a<sub>1</sub> -> a<sub>2</sub> -> a<sub>3</sub> -> ... -> a<sub>n</sub> -> b<sub>1</sub> -> b<sub>2</sub> -> b<sub>3</sub> -> ... -> b<sub>n</sub>_ and you wanted to rearrange it to _a<sub>1</sub> -> b<sub>1</sub> -> ... -> a<sub>n</sub> -> b<sub>n</sub>_. You do not know the length of the list but you know that the length is an even number.
+
+You could have a pointer `p1` (the **fast** pointer) move every two elements for every one move that `p2` does. When `p1` hits the end of the list, `p2` will be halfway through, then move `p1` back to the front, and start "waving" elements. On each iteration, `p2` selects and element and inserts it after `p1`.
+
+### Recursive Problems
+
+A number of linked list problems rely on recursion. If you're having trouble solving a linked list problem, you should explore if a recursive approach will work. **However, you should remember that recursive algorithms take at least O(n) space**, where n is the depth of the recursive call. All recursive algorithms can be implemented iteratively, although they may be much more complex.
