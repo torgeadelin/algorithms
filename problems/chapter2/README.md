@@ -42,3 +42,7 @@ Suppose the digits are stored in forward order. Repeat the above problem.
 EXAMPLE
 **Input**: (6 -> 1 -> 7) + (2 -> 9 -> 5).That is,617 + 295.
 **Output**: 9 -> 1 -> 2.That is,912.
+
+### 6. [Palindrome](./Palindrome.java)
+
+Palindrome: Implement a function to check if a linked list is a palindrome.
