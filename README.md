@@ -197,3 +197,128 @@ A number of linked list problems rely on recursion. If you're having trouble sol
 | add(tail or head)      | `O(1)`      | `O(1)`             |
 | remove(tail or head)   | `O(1)`      | `O(1)`             |
 | add and remove(inside) | `O(n)`      | `O(n)`             |
+
+## 3. Stacks and Queues
+
+Much easier to handle if you understand how they work. Problems can be tricky though.
+
+### Implementing a Stack
+
+The definition of a stack is precisely what it's sounds like, a stack of data. In certain problems it's more favorable to store the data in this fashion. Stack uses **LIFO ordering (Last In First Out)**. That is, as in a stack of plates, the most recent item added to the stack is the first item to be removed.
+
+**Methods**
+`pop()`: Remove the top item from the stack.
+`push(item)`: Add an item to the top of the stack.
+`peek()`: Return the top of the stack.
+`isEmpty()`: Return true if and only if the stack is empty.
+
+Stack doesn't provide constant-time access to the i<sub>th</sub> element. However it does provide constant time for adding and removing.
+
+### Java Implementation
+
+```java
+public class MyStack<T> {
+    private static class StackNode<T> {
+        private T data;
+        private StackNode<T> next;
+
+        public StackNode(T data) {
+            this.data = data;
+        }
+    }
+
+    private StackNode<T> top;
+
+    public T pop() {
+        if (top == null) throw new EmptystackException();
+        T item = top.data;
+        top = top.next;
+        return item;
+    }
+
+    public void push(T item) {
+        StackNode<T> t = new StackNode<T>(item);
+        t.next = top;
+        top = t;
+    }
+
+    public T peek() {
+        if (top== null) throw new EmptyStackException();
+        return top.data;
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+}
+```
+
+| Operation                | Stack  |
+| ------------------------ | ------ |
+| pop                      | `O(1)` |
+| push                     | `O(1)` |
+| peek                     | `O(1)` |
+| find i<sub>th</sub> elem | `O(n)` |
+
+A stack can also be used to implement a recursive algorithm iteratively. (This is a good exercise! Take a simple recursive algorithm and implement it iteratively.)
+
+### Implementing a Queue
+
+A queue is similar to a stack but the ordering is different. A queue implements **FIFO ordering (First In First Out)** hence the name 'queue'. As in a line or queue at a ticket stand, items are removed from the data structure in the same order that they are added
+
+**Methods**
+`add()`: Add an item to the end of the list.
+`remove()`: Remove the first item in the list.
+`peek()`: Return the top of the queue.
+`isEmpty()`: Return true if and only if the queue is empty.
+
+### Java Implementation
+
+```java
+public class MyQueue<T> {
+    private static class QueueNode<T> {
+        private T data;
+        private QueueNode<T> next;
+
+        public QueueNode(T data) {
+            this.data = data;
+        }
+    }
+
+    private QueueNode<T> first;
+    private QueueNode<T> last;
+
+    public void add(T item) {
+        QueueNode<T> t = new QueueNode<T>(item);
+        if (last != null) {
+            last.next = t;
+        }
+        last = t;
+        if (first == null) {
+            first = last;
+        }
+    }
+
+    public T remove() {
+        if (first== null) throw new NoSuchElementException();
+        T data = first.data;
+        first = first.next;
+
+        if (first == null) {
+            last = null;
+        }
+        return data;
+
+    }
+
+    public T peek() {
+        if (first == null) throw new EmptyQueueException();
+        return first.data;
+    }
+
+    public boolean isEmpty() {
+        return first == null;
+    }
+```
+
+One place where queues are often used is in **breadth-first search** or in implementing a **cache**.
