@@ -321,4 +321,11 @@ public class MyQueue<T> {
     }
 ```
 
+| Operation                | Queue  |
+| ------------------------ | ------ |
+| add                      | `O(1)` |
+| remove                   | `O(1)` |
+| peek                     | `O(1)` |
+| find i<sub>th</sub> elem | `O(n)` |
+
 One place where queues are often used is in **breadth-first search** or in implementing a **cache**.
