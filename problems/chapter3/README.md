@@ -16,6 +16,6 @@ Stack of Plates: Imagine a (literal) stack of plates. If the stack gets too high
 FOLLOW UP
 Implement a function `popAt(int index)` which performs a pop operation on a specific sub-stack.
 
-### 4. [Queue via Stacks]
+### 4. [Queue via Stacks](./MyQueue.java)
 
 Queue via Stacks: Implement a MyQueue class which implements a queue using two stacks.
