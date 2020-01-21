@@ -19,3 +19,7 @@ Implement a function `popAt(int index)` which performs a pop operation on a spec
 ### 4. [Queue via Stacks](./MyQueue.java)
 
 Queue via Stacks: Implement a MyQueue class which implements a queue using two stacks.
+
+### 5. [Sort Stack](./SortStack.java)
+
+Sort Stack: Write a program to sort a stack such that the smallest items are on the top. You can use an additional temporary stack, but you may not copy the elements into any other data structure (such as an array). The stack supports the following operations: push, pop, peek, and isEmpty.
