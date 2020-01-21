@@ -329,3 +329,105 @@ public class MyQueue<T> {
 | find i<sub>th</sub> elem | `O(n)` |
 
 One place where queues are often used is in **breadth-first search** or in implementing a **cache**.
+
+## 4. Trees and Graphs
+
+### Types of Trees
+
+A nice way to define to trees is by doing so recursively. A tree is a data structure composed of nodes.
+
+- Each tree has a root node.
+- The root node has 0 or more children.
+- Each children has 0 or more child nodes, and so on.
+
+Trees cannot contain cycles, may or may not be in a particular order, they could have data types as values, and they may or may not have links back to their parent nodes.
+
+A very simple class node.
+
+```java
+
+public class Node {
+    public String name;
+    public Node[] children;
+}
+```
+
+And you might also have a tree class holding the root node.
+
+```java
+class Tree {
+    public Node root;
+}
+```
+
+### Trees vs. Binary Trees
+
+A binary tree is a tree where each node has at most 2 child nodes. Not all trees are binary trees.
+Also, a node is called a "leaf / terminal" node if it has no children.
+
+### Binary Tree vs. Binary Search Tree (BST)
+
+A binary search tree is a binary tree in which every node fits a specific ordering property:
+`all left descendents <= n < all right descendents`. This must be true for all nodes.
+
+The definition of a binary search tree can vary slightly with respect to equality. Under some defi­ nitions, the tree cannot have duplicate values. In others, the duplicate values will be on the right or can be on either side. All are valid definitions, but you should clarify this with your interviewer.
+
+### Balanced vs. Unbalanced
+
+While many trees are balanced, not all are. Ask your interviewer for clarification here. Note that balancing a tree does not mean the left and right subtrees are exactly the same size. One way to think about it is that a "balanced" tree really means something more like "not terribly imbal­anced": It's balanced enough to ensure `0(log n)` times for `insert` and `find`, but it's not necessarily as balanced as it could be.
+
+### Complete Binary Trees
+
+A complete binary tree is a binary tree in which every level of the tree is fully filled, except for perhaps the last level. To the extent that the last level is filled, it is filled left to right.
+
+### Full Binary Trees
+
+A full binary tree is a binary tree in which every node has either zero or two children. That is, no nodes have only one child.
+
+### Perfect Binary Tree
+
+A perfect binary tree is one that is both full and complete. All leaf nodes will be at the same level, and this level has the maximum number of nodes.
+
+### Binary Tree Traversal
+
+#### In-Order Traversal
+
+In-order traversal means to "visit" (often, print) the left branch, then the current node, and finally, the right branch. When performed on a binary search tree(BST), it visits the nodes in ascending order (hence the name "in-order").
+
+```java
+void inOrder(Node node) {
+    if(node != null) {
+        inOrder(node.left);
+        visit(node);
+        inOrder(node.right);
+    }
+}
+```
+
+#### Pre-Order Traversal
+
+Pre-order traversal visits the current node before its child nodes (hence the name "pre-order"). In a pre-order traversal, the root is always the first node visited.
+
+```java
+void preOrder(Node node) {
+    if(node != null) {
+        visit(node);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+}
+```
+
+#### Post-Order Traversal
+
+Post-order traversal visits the current node after its child nodes (hence the name "post-order"). In a post-order traversal, the root is always the last node visited.
+
+```java
+void postOrder(Node node) {
+    if(node != null) {
+        postOrder(node.left);
+        postOrder(node.right);
+        visit(node);
+    }
+}
+```
