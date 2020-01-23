@@ -432,7 +432,7 @@ void postOrder(Node node) {
 }
 ```
 
-### Binary Heaps (Min -eaps, Max-heaps)
+### Binary Heaps (Min-heaps, Max-heaps)
 
 We'll just illustrate min heaps here, max are equivalent but the elemets are in descending order
 rather than ascending.
@@ -454,3 +454,19 @@ First thing we do is removing the root element and swap it with the last element
 Do we swap it with the right or the left? Well that depends on the values. There is no inherent ordering between the left and right element, but you'll need to take the smaller one in order to maintain the min-heap ordering.
 
 The time complexity for this operation is also `O(log n)` where n is the number of nodes in the tree.
+
+#### Extra information
+
+Mapping the elements of a heap into an array is trivial: if a node is stored a index k, then its left child is stored at index 2k + 1 and its right child at index 2k + 2.
+How is Min Heap represented?
+
+A Min Heap is a Complete Binary Tree. A Min heap is typically represented as an array. The root element will be at Arr[0]. For any ith node, i.e., Arr[i]:
+
+- Arr[(i -1) / 2] returns its parent node.
+- Arr[(2 * i) + 1] returns its left child node.
+- Arr[(2 * i) + 2] returns its right child node.
+
+We can also use Library Functions
+We use PriorityQueue class to implement Heaps in Java.
+
+### Tries(Prefixe Trees)
