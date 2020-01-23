@@ -431,3 +431,26 @@ void postOrder(Node node) {
     }
 }
 ```
+
+### Binary Heaps (Min -eaps, Max-heaps)
+
+We'll just illustrate min heaps here, max are equivalent but the elemets are in descending order
+rather than ascending.
+
+A min-heap is a complete binary tree(that is, totally filled other than the rightmost elements of the laste levels) where each node is smaller than its children. The root ,therefore, is the minimum element in the tree.
+There are two key operations on a min-heap: `insert` and 'extract_min`
+
+#### Inert
+
+When we insert in a min-heap we always insert an element at the bottom of the tree and we insert at the rightmost spot so as to maintain the complete tree property. Then we fix the tree by swapping the new element with its parent, until we find an apropriate spot for the element. We essentially "bubble up" the minimum element.
+
+The time complexity for this operation is `O(log n)` where n is the number of nodes in the tree.
+
+#### Extracting the Minimum Element
+
+Finding the min element in a min heap is easy: it's always on the top. The trickier part is how to remove it, but we'll see it's actually not tha hard.
+
+First thing we do is removing the root element and swap it with the last element in the tree(the bottommost rightmost element). Then we bubble down this element, swiping it with one of its children until the min-heap property is restored.
+Do we swap it with the right or the left? Well that depends on the values. There is no inherent ordering between the left and right element, but you'll need to take the smaller one in order to maintain the min-heap ordering.
+
+The time complexity for this operation is also `O(log n)` where n is the number of nodes in the tree.
