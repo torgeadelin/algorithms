@@ -440,7 +440,7 @@ rather than ascending.
 A min-heap is a complete binary tree(that is, totally filled other than the rightmost elements of the laste levels) where each node is smaller than its children. The root ,therefore, is the minimum element in the tree.
 There are two key operations on a min-heap: `insert` and 'extract_min`
 
-#### Inert
+#### Insert
 
 When we insert in a min-heap we always insert an element at the bottom of the tree and we insert at the rightmost spot so as to maintain the complete tree property. Then we fix the tree by swapping the new element with its parent, until we find an apropriate spot for the element. We essentially "bubble up" the minimum element.
 
