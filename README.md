@@ -470,3 +470,112 @@ We can also use Library Functions
 We use PriorityQueue class to implement Heaps in Java.
 
 ### Tries(Prefixe Trees)
+
+<img src="./resources/tries.png" width="400p">
+
+A trie (sometimes called a prefix tree) a variant of an n-ary tree in which characters are stored at each node. Each path down the tree may represent a word.
+
+The \* nodes(sometimes called "null nodes") are often used to indicate complete words. For example, the fact that there is a \* node under "MANY" indicates that MANY is a complete word. The existance of the MA path indicates that there are words starting with MA.
+
+The actual implementation of these \* nodes might be a special type of child (such as a TerminatingTrieNode, which inherits from TrieNode). Or, we could use just a boolean flag terminates within the "parent" node.
+
+A node in a trie could have anywhere from 1 through ALPHABET_SIZE + 1 children (or, 0 through ALPHABET_SIZE if a boolean flag is used instead of a \* node).
+
+Very commonly, a trie is used to store the entire (English) language for quick prefix lookups. While a hash table can quickly look up whether a string is a valid word, it cannot tell us if a string is a prefix of any valid words. A trie can do this very quickly.
+
+How quickly? A trie can check if a string is a valid prefix in `0(K)` time, where K is the length of the string. This is actually the same runtime as a hash table will take. Although we often refer to hash table lookups as being `0(1)` time, this isn't entirely true. A hash table must read through all the characters in the input, which takes `O(K)` time in the case of a word lookup.
+
+Many problems involving lists of valid words leverage a trie as an optimization. In situations when we search through the tree on related prefixes repeatedly (e.g., looking up M, then MA, then MAN, then MANY), we might pass around a reference to the current node in the tree. This will allow us to just check if Y is a child of MAN, rather than starting from the root each time.
+
+### Graphs
+
+A tree is actually a type of graph, but not all graphs are trees. Simply put, a tree is a connected graph without cycles. A graph is simply a collection of nodes with edges between (some of) them.
+
+- Graphs can be either directed (like the following graph) or undirected. While directed edges are like a one-way street, undirected edges are like a two-way street.
+- The graph might consist of multiple isolated subgraphs. If there is a path between every pair of vertices, it is called a "connected graph"
+- The graph can also have cycles (or not). An "acyclic graph" is one without cycles.
+
+#### Adjacency list
+
+This is the most common way to represent a graph. Every vertex or node stores a list of adjacent vertices. In an undirected graph, an edge like (a, b) would be stored twice: once in a's adjacent vertices and once in b's adjacent vertices.
+
+A simple class definition for a graph node could look essentially the same as a tree node.
+
+```java
+class Graph {
+    public Node[] nodes;
+}
+
+class Node {
+    public String name;
+    public Node[] children;
+}
+```
+
+The Graph class is used because, unlike in a tree, you can't necessarily reach all the nodes from a single node.
+
+You don't necessarily need any additional classes to represent a graph. An array(or a hash table) of lists (array, arraylist, linked list, etc.) can store the adjacency list. This is a bit more compact, but it isn't quite as clean. We tend to use node classes unless there's a compelling reason not to.
+
+#### Adjacency Matrices
+
+An adjacency matrix is a NxN boolean matrix(where N is the number of nodes), where a true value at matrix[i][j] indicates an edge from node i to node j. <span color="red">The same graph algorithms that are used on adjacency lists (breadth-first search, etc.) can be performed with adjacency matrices, but they may be somewhat less efficient. In the adjacency list representation, you can easily iterate through the neighbors of a node. In the adjacency matrix representation, you will need to iterate through all the nodes to identify a node's neighbors.</span>
+
+#### Graph Search
+The two most common ways to search a graph are DFS (depth first search) and BFS (breadth first search).
+
+In DFS we start at the root(or another random selected node) and explore each branch completely before moving on to the next branch. That is, we go deep first(hence the name) before we go wide.
+
+In BFS, we start at the roog(or another random selected node) and explore each neighbour before going on to any of their children. That is, we go wide (hence the name) before we go deep.
+
+BFS and DFS tend to be used in different scenarios. DFS is often preffered if we want to visit every node in the graph. Both will work just fine, but DFS is a bit simpler.
+
+However, if we want to find the shortest path between two nodes, BFS is generally better. Consider representing all the friendships in the entire world in a graph and trying to find a path of friend­ ships between Ash and Vanessa.
+In depth-first search, we could take a path like Ash -> Brian -> Carleton -> Davis -> Eric -> Farah -> Gayle -> Harry -> Isabella -> John·-> Kari...and then find ourselves very far away. We could go throug hmost of the world without realizing that, infact, Vanessa is Ash's friend. We will still eventually find the path, but it may take a long time. It also won't find us the shortest path.
+
+#### DFS
+In DFS, we visit a node a then iterate through each of a's neighbours. When visiting a node b that is a neighbour of a, we visit all of b's neigbhours before going on to a's other neighbours. That is, a exhaustively searches b's branch before any of its other neighbours. 
+
+Note that pre-order and other forms of tree traversal are a form of DFS. The key difference is that when implementing this algorithm for a graph, we must check if the node has been visited. If we don't, we risk getting stuck in an infinite loop.
+
+```java
+void DFS(Node root) {
+    if(root == null) return;
+    visit(root);
+    root.visited = true;
+    for each(Node n in root.adjacent) {
+        if(n.visited == false) {
+            DFS(n);
+        }
+    }
+}
+```
+
+#### BFS
+BFS is a bit less intuitive, and many interviewees struggle with the implementation unless they are already familiar with it. The main tripping point is the false assumption that BFS is recursive. It's not. Instead, it uses a queue.
+
+In BFS, node a visits each of a's neighbours before visiting any of their neighbours. You can think of this as searching level by level out from a. An iterative solution involving a queue usually works best.
+
+```java
+void BFS(Node root) {
+    Queue queue = new Queue();
+    root.marked = true;
+    queue.enqueue(root);
+
+    while(!queue.isEmpty()) {
+        node r = queue.dequeue();
+        visit(r);
+        foreach(Node n in r.adjacent) {
+            if(n.market == false) {
+                n.marked = true;
+                queue.enqueue(n);
+            }
+           
+        }
+    }
+}
+```
+
+If you are asked to implement BFS, the key thing to remember is the use of the queue. The rest of the algo­ rithm flows from this fact.
+
+#### Bidirectional Search
+Bidirectional search is used to find the shortest path between a source and destination node. It operates by essentially running two simultaneous BFS, one from each node. When their searches collide, we have found a path.
