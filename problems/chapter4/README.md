@@ -19,3 +19,7 @@ at each depth (e.g., if you have a tree with depth D, you'll have D linked lists
 ### 4. [Check Balanced](./CheckBalanced.java)
 
 Check Balanced: Implement a function to check if a binary tree is balanced. For the purposes of this question, a balanced tree is defined to be a tree such that the heights of the two subtrees of any node never differ by more than one.
+
+### 5. [Successor](./Successor.java)
+
+Successor: Write an algorithm to find the "next" node (i.e., in-order successor) of a given node in a binary search tree. You may assume that each node has a link to its parent.
